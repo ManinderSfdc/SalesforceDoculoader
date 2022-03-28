@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This tab exposes the mass document uploader component used for uploading documents for portfolios</description>
+    <label>Portfolio Document Uploader</label>
+    <lwcComponent>documentUploader</lwcComponent>
+    <motif>Custom43: Jewel</motif>
+</CustomTab>

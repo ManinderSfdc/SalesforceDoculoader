@@ -1,0 +1,52 @@
+.info-icon{
+    --sds-c-icon-color-foreground-default: rgb(0, 140, 255);
+}
+
+.button-wrapper{
+ margin: 10px 0;
+}
+
+.document-selecter{
+    width:50%;
+    height:auto;
+    padding: 10px;
+    margin: 5px;
+    border:1px solid black;
+    background-color: white;
+}
+.upload-status {
+    width:50%;
+    height:auto;
+    padding: 10px;
+    margin: 5px;
+    border:1px solid black;
+    background-color: white;
+}
+
+.status-container,
+.status-message,
+.status-progressbar,
+.status-info {
+    padding: 5px;
+}
+
+.review-div {
+    clear:both;
+    width:inherit;
+    height:auto;
+    position:static;
+    border:1px solid black;
+}
+.datatable {
+    height:300px;
+    margin: 0 0 5px 0;
+}
+
+.confirm-button { 
+    display: flex; 
+    justify-content: center; 
+}
+
+.outerWrapper {
+    display: flex;
+}

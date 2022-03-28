@@ -1,0 +1,25 @@
+const MAX_BATCH_SIZE = 200; // Max 200 records can be created in single Sobject API request
+const BYTES_PER_MEGABYTE = 1048576;
+const COLOR_YELLOW = '#fcfc03';
+const COLOR_RED = '#ff7575';
+const COLOR_GREEN = '#b5f7b0';
+const MAX_FILEBATCH_SIZE = 500; // in MB
+const PORTFOLIO_TYPE_WEALTH = 'LIQID Wealth';
+const PORTFOLIO_TYPE_EQUITY = 'Private Equity';
+const PORTFOLIO_TYPE_CAPITAL = 'Venture Capital';
+const PORTFOLIO_TYPE_REAL_ESTATE = 'Real Estate';
+
+const CONSTANTS = {
+  MAX_BATCH_SIZE,
+  BYTES_PER_MEGABYTE,
+  COLOR_YELLOW,
+  COLOR_RED,
+  COLOR_GREEN,
+  MAX_FILEBATCH_SIZE,
+  PORTFOLIO_TYPE_WEALTH,
+  PORTFOLIO_TYPE_EQUITY,
+  PORTFOLIO_TYPE_CAPITAL,
+  PORTFOLIO_TYPE_REAL_ESTATE,
+};
+
+export default CONSTANTS;

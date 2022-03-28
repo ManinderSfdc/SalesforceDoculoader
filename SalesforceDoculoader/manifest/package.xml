@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+  <version>50.0</version>
+   <types>
+      <members>Salesforce_Doculoader</members>
+      <name>CustomApplication</name>
+   </types>
+  <types>
+      <members>Salesforce_Doculoader</members>
+      <name>PermissionSet</name>
+   </types>
+   <types>
+      <members>Document__c</members>
+      <members>Portfolio__c</members>
+      <members>ContentVersion</members>
+      <name>CustomObject</name>
+   </types>
+   <types>
+        <members>Document_Record_Page</members>
+        <members>Portfolio_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>
+   <types>
+      <members>Document__c</members>
+      <members>Portfolio_Document_Uploader</members>
+      <members>Portfolio__c</members>
+      <name>CustomTab</name>
+   </types>
+   <types>
+      <members>DocumentUploaderController</members>
+      <members>LwcRestSession</members>
+      <name>ApexClass</name>
+   </types>
+   <types>
+      <members>LwcRestSessionId</members>
+      <name>ApexPage</name>
+   </types>
+   <types>
+      <members>documentUploader</members>
+      <name>LightningComponentBundle</name>
+   </types>
+   <types>
+    <members>Document__c-Document Layout</members>
+    <members>Portfolio__c-Portfolio Layout</members>
+    <name>Layout</name>
+</types>
+</Package>

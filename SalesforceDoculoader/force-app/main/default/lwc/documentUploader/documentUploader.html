@@ -1,0 +1,163 @@
+<template>
+  <div class="outerWrapper">
+    <div class="document-selecter">
+      <lightning-card
+        title="Document Uploader"
+        class="slds-m-bottom_medium"
+        icon-name="utility:connected_apps"
+      >
+        <div class="slds-p-horizontal_medium">
+          <lightning-icon
+            icon-name="standard:article"
+            alternative-text="info"
+            size="small"
+            class="info-icon slds-m-right_medium"
+          ></lightning-icon>
+          <a
+            href="https://github.com/ManinderSfdc/Doculoader"
+            target="_blank"
+            >Usage Guide</a
+          >
+          <template if:true={isOnRecordDetailPage}>
+            <lightning-input label="PortFolio Id" disabled value={activePortfolioId}>
+            </lightning-input>
+          </template>
+          <template if:false={isOnRecordDetailPage}>
+            <lightning-tabset>
+              <lightning-tab
+                label="Upload With File Name"
+                value="uploadWithFileName"
+                onactive={handleActiveTab}
+              >
+                <lightning-icon
+                  icon-name="utility:info_alt"
+                  alternative-text="info"
+                  size="small"
+                  class="info-icon slds-m-right_medium"
+                ></lightning-icon>
+                You are uploading files based on the File Name. Make sure you have correct File Name
+                format.
+              </lightning-tab>
+              <lightning-tab
+                label="Upload With Portfolio Type"
+                value="uploadWithPortfolioType"
+                onactive={handleActiveTab}
+              >
+                <lightning-icon
+                  icon-name="utility:info_alt"
+                  alternative-text="info"
+                  size="small"
+                  class="info-icon slds-m-right_medium"
+                ></lightning-icon>
+                You are uploading files to all portfolios of selected Type.
+              </lightning-tab>
+            </lightning-tabset>
+            <template if:true={portfolioTypes.data}>
+              <lightning-combobox
+                data-id="portfolioType"
+                name="portfolioType"
+                label="Portfolio Type"
+                value={value}
+                placeholder="Select Portfolio Type"
+                options={portfolioTypes.data.values}
+                onchange={handlePortfolioTypeSelection}
+              required
+              >
+              </lightning-combobox>
+            </template>
+          </template>
+          <template if:true={documentTypes.data}>
+            <lightning-combobox
+              data-id="documentType"
+              label="Document Type"
+              value={value}
+              placeholder="Choose Document Type"
+              options={documentTypes.data.values}
+              required
+            >
+            </lightning-combobox>
+          </template>
+          <template if:true={documentDescriptions.data}>
+            <lightning-combobox
+              data-id="description"
+              label="Description"
+              value={value}
+              placeholder="Choose Description"
+              options={documentDescriptions.data.values}
+              required
+            >
+            </lightning-combobox>
+          </template>
+          <lightning-input
+            data-id="publishDate"
+            type="date"
+            name="publishDate"
+            label="Publish Date"
+            required
+            value=""
+          ></lightning-input>
+        </div>
+      </lightning-card>
+      <div class="button-wrapper">
+        <input type="file" id="files" name="fileinput" multiple />
+        <lightning-button
+          icon-name="utility:preview"
+          variant="brand"
+          disabled={disableReviewButton}
+          label="Review"
+          onclick={handleReview}
+          class="slds-m-left_x-small"
+        ></lightning-button>
+      </div>
+    </div>
+
+    <div class="upload-status">
+      <lightning-card title="Upload Status">
+        <div class="status-container">
+          <div class="status-message slds-text-heading_medium" style={messageStyle}>
+            <lightning-formatted-text
+            value= {message} >
+            </lightning-formatted-text>
+          </div>
+          <template if:true={showProgress}>
+            <div class="status-progressbar">
+              {progressBarMessage}
+              <lightning-progress-bar value={progress}></lightning-progress-bar>
+            </div>
+            <div class="status-info">
+              <b>Processing Batch :</b> {batchNo} <br />
+              <b>Files in current Batch :</b> {filesInBatch} <br />
+              <b>Size of files in current Batch :</b> {totalSizeOfFilesInBatch} MB<br />
+              <b>Size of all Files :</b> {totalFileSize}<br />
+            </div>
+          </template>
+        </div>
+      </lightning-card>
+    </div>
+  </div>
+  <div class="review-div">
+    <template if:true={data.length}>
+      <div class="datatable">
+        <lightning-datatable
+          key-field="id"
+          data={data}
+          columns={columns}
+          onrowaction={handleRowAction}
+          show-row-number-column
+          hide-checkbox-column
+        >
+        </lightning-datatable>
+      </div>
+      <div class="confirm-button">
+        <lightning-button
+          icon-name="utility:upload"
+          disabled={disableConfirmButton}
+          variant="brand"
+          label="Confirm Upload"
+          onclick={handleConfirmUpload}
+          class="slds-m-left_x-small"
+        ></lightning-button>
+      </div>
+    </template>
+  </div>
+</template>
